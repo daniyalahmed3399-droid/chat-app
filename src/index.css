@@ -1,0 +1,42 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2ff;
+  color: #172033;
+  min-height: 100vh;
+}
+
+/* Remove default button/input font differences */
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* Smooth transitions */
+
+button,
+input,
+a {
+  transition: all 0.2s ease;
+}
+

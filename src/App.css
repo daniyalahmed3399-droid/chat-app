@@ -1,0 +1,1294 @@
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+  height: 64px;
+  padding: 0 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: linear-gradient(
+    135deg,
+    #111827,
+    #1e293b
+  );
+
+  color: white;
+
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+
+  position: relative;
+  z-index: 10;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: #60a5fa;
+
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.dashboard {
+  min-height: calc(100vh - 64px);
+
+  padding: 50px 40px;
+
+  max-width: 1150px;
+
+  margin: 0 auto;
+
+  animation: pageFade 0.5s ease;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.dashboard-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dashboard-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+
+/* =====================================================
+   DASHBOARD STAT CARDS
+===================================================== */
+
+.dashboard-stats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.9);
+
+  padding: 30px 20px;
+
+  border-radius: 16px;
+
+  text-align: center;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 8px 25px rgba(30, 41, 59, 0.08);
+
+  animation: cardAppear 0.5s ease backwards;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.stat-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stat-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 15px 35px rgba(37, 99, 235, 0.15);
+}
+
+.stat-card h2 {
+  margin: 0 0 8px;
+
+  font-size: 36px;
+
+  color: #2563eb;
+}
+
+.stat-card p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   RECENT CHATS
+===================================================== */
+
+.recent-chats {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 25px rgba(30, 41, 59, 0.08);
+
+  animation: cardAppear 0.6s ease;
+}
+
+.recent-chats > h2 {
+  margin: 0;
+
+  padding: 22px 25px;
+
+  font-size: 21px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  background: #f8fafc;
+}
+
+.recent-chat {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 20px 25px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  transition: background 0.2s ease;
+}
+
+.recent-chat:hover {
+  background: #f8faff;
+}
+
+.recent-chat:last-child {
+  border-bottom: none;
+}
+
+.recent-chat h3 {
+  margin: 0 0 5px;
+
+  font-size: 16px;
+}
+
+.recent-chat p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+.recent-chat span {
+  color: #2563eb;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+
+/* =====================================================
+   CHAT PAGE
+===================================================== */
+
+.chat-page {
+  display: flex;
+
+  width: calc(100% - 40px);
+
+  height: calc(100vh - 104px);
+
+  margin: 20px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  border: 1px solid #dbe4f0;
+
+  box-shadow:
+    0 12px 35px rgba(30, 41, 59, 0.12);
+
+  animation: pageFade 0.4s ease;
+}
+
+
+/* =====================================================
+   CHAT LIST
+===================================================== */
+
+.chat-list {
+  width: 32%;
+
+  min-width: 270px;
+
+  background: #f8fafc;
+
+  border-right: 1px solid #e2e8f0;
+
+  overflow-y: auto;
+}
+
+.chat-list h2 {
+  margin: 0;
+
+  padding: 22px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  background: white;
+
+  color: #172033;
+}
+
+
+/* =====================================================
+   NEW CHAT
+===================================================== */
+
+.new-chat {
+  display: flex;
+
+  padding: 15px;
+
+  background: white;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.new-chat input {
+  flex: 1;
+
+  padding: 10px 12px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 8px;
+
+  outline: none;
+}
+
+.new-chat input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.new-chat button {
+  margin-left: 8px;
+
+  padding: 10px 16px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #2563eb;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.new-chat button:hover {
+  background: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+
+/* =====================================================
+   CHAT ITEMS
+===================================================== */
+
+.chat-item {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 16px 18px;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.chat-item:hover {
+  background: #eef4ff;
+}
+
+.chat-item.selected {
+  background: linear-gradient(
+    90deg,
+    #dbeafe,
+    #eff6ff
+  );
+
+  border-left: 4px solid #2563eb;
+
+  padding-left: 14px;
+}
+
+.chat-info {
+  min-width: 0;
+}
+
+.chat-info h3 {
+  margin: 0 0 5px;
+
+  font-size: 15px;
+}
+
+.chat-info p {
+  margin: 0;
+
+  color: #64748b;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  max-width: 180px;
+}
+
+
+/* =====================================================
+   CHAT ACTIONS
+===================================================== */
+
+.chat-actions {
+  display: flex;
+
+  gap: 5px;
+
+  margin-left: 10px;
+}
+
+.chat-actions button,
+.edit-chat button {
+  padding: 6px 9px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #e2e8f0;
+
+  color: #334155;
+
+  cursor: pointer;
+
+  font-size: 12px;
+}
+
+.chat-actions button:hover,
+.edit-chat button:hover {
+  background: #cbd5e1;
+}
+
+.chat-actions .delete-chat {
+  background: #fee2e2;
+
+  color: #dc2626;
+}
+
+.chat-actions .delete-chat:hover {
+  background: #fecaca;
+}
+
+
+/* =====================================================
+   EDIT CHAT
+===================================================== */
+
+.edit-chat {
+  display: flex;
+
+  gap: 5px;
+
+  align-items: center;
+}
+
+.edit-chat input {
+  padding: 7px;
+
+  width: 110px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 6px;
+
+  outline: none;
+}
+
+.edit-chat input:focus {
+  border-color: #2563eb;
+}
+
+
+/* =====================================================
+   CHAT WINDOW
+===================================================== */
+
+.chat-window {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background: #f8fafc;
+}
+
+.chat-header {
+  padding: 18px 22px;
+
+  background: white;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  box-shadow: 0 2px 8px rgba(30, 41, 59, 0.05);
+}
+
+.chat-header h2 {
+  margin: 0;
+
+  font-size: 19px;
+}
+
+.chat-header p {
+  margin: 5px 0 0;
+
+  font-size: 13px;
+
+  color: #16a34a;
+
+  font-weight: bold;
+}
+
+
+/* =====================================================
+   EMPTY CHAT
+===================================================== */
+
+.empty-chat {
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.empty-chat h2 {
+  color: #334155;
+
+  margin-bottom: 5px;
+}
+
+
+/* =====================================================
+   MESSAGES
+===================================================== */
+
+.messages {
+  flex: 1;
+
+  padding: 25px;
+
+  overflow-y: auto;
+
+  scroll-behavior: smooth;
+}
+
+.message {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 18px;
+
+  max-width: 70%;
+
+  animation: messageAppear 0.25s ease;
+}
+
+.message strong {
+  font-size: 12px;
+
+  margin-bottom: 5px;
+
+  color: #64748b;
+}
+
+.message p {
+  margin: 0;
+
+  padding: 11px 15px;
+
+  border-radius: 14px;
+
+  width: fit-content;
+
+  line-height: 1.4;
+}
+
+.my-message {
+  margin-left: auto;
+
+  align-items: flex-end;
+}
+
+.my-message p {
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  border-bottom-right-radius: 4px;
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.other-message {
+  margin-right: auto;
+
+  align-items: flex-start;
+}
+
+.other-message p {
+  background: white;
+
+  color: #172033;
+
+  border: 1px solid #e2e8f0;
+
+  border-bottom-left-radius: 4px;
+
+  box-shadow:
+    0 3px 10px rgba(30, 41, 59, 0.05);
+}
+
+.message-time {
+  font-size: 10px;
+
+  color: #94a3b8;
+
+  margin-top: 4px;
+}
+
+
+/* =====================================================
+   MESSAGE INPUT
+===================================================== */
+
+.message-input {
+  display: flex;
+
+  padding: 15px;
+
+  background: white;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+.message-input input {
+  flex: 1;
+
+  padding: 12px 14px;
+
+  font-size: 15px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 9px;
+
+  outline: none;
+}
+
+.message-input input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.message-input button {
+  padding: 12px 22px;
+
+  margin-left: 10px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.message-input button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+.profile-page {
+  min-height: calc(100vh - 64px);
+
+  padding: 50px 30px;
+
+  max-width: 950px;
+
+  margin: 0 auto;
+
+  animation: pageFade 0.5s ease;
+}
+
+.profile-header {
+  text-align: center;
+
+  margin-bottom: 40px;
+}
+
+.profile-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 40px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.profile-header p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+.profile-card {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+
+  padding: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 45px;
+
+  box-shadow:
+    0 12px 35px rgba(30, 41, 59, 0.1);
+
+  animation: cardAppear 0.5s ease;
+}
+
+
+/* Profile avatar */
+
+.profile-avatar {
+  width: 125px;
+
+  height: 125px;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  color: white;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  font-size: 48px;
+
+  font-weight: bold;
+
+  flex-shrink: 0;
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.25);
+
+  animation: avatarFloat 3s ease-in-out infinite;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-info h2 {
+  margin: 0 0 5px;
+
+  font-size: 28px;
+}
+
+.profile-status {
+  margin: 0 0 25px;
+
+  color: #16a34a;
+
+  font-size: 14px;
+
+  font-weight: bold;
+}
+
+.profile-details {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.profile-detail {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.profile-detail strong {
+  color: #334155;
+}
+
+.profile-detail span {
+  color: #64748b;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+.login-page {
+  min-height: calc(100vh - 64px);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 30px 20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(37, 99, 235, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(124, 58, 237, 0.12),
+      transparent 35%
+    );
+
+  animation: pageFade 0.5s ease;
+}
+
+.login-card {
+  width: 100%;
+
+  max-width: 430px;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  padding: 45px;
+
+  border-radius: 18px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 20px 50px rgba(30, 41, 59, 0.15);
+
+  animation: loginAppear 0.6s ease;
+}
+
+.login-card h1 {
+  margin: 0 0 10px;
+
+  text-align: center;
+
+  font-size: 34px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #7c3aed
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.login-card > p {
+  margin: 0 0 30px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.login-field {
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.login-field label {
+  margin-bottom: 8px;
+
+  font-weight: bold;
+
+  font-size: 14px;
+
+  color: #334155;
+}
+
+.login-field input {
+  padding: 13px 14px;
+
+  border: 1px solid #cbd5e1;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+
+  outline: none;
+
+  background: #f8fafc;
+}
+
+.login-field input:focus {
+  background: white;
+
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.login-card button {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: white;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.2);
+}
+
+.login-card button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.3);
+}
+
+.login-error {
+  margin: -5px 0 15px;
+
+  color: #dc2626;
+
+  font-size: 14px;
+
+  animation: shake 0.3s ease;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loginAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes avatarFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 700px) {
+
+  /* Navbar */
+
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .navbar h2 {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+
+
+  /* Dashboard */
+
+  .dashboard {
+    padding: 35px 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 32px;
+  }
+
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+
+  /* Chat */
+
+  .chat-page {
+    flex-direction: column;
+
+    width: calc(100% - 20px);
+
+    height: calc(100vh - 84px);
+
+    margin: 10px;
+  }
+
+  .chat-list {
+    width: 100%;
+
+    height: 38%;
+
+    min-width: 0;
+
+    border-right: none;
+
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .chat-window {
+    width: 100%;
+
+    height: 62%;
+  }
+
+  .chat-info p {
+    max-width: 140px;
+  }
+
+  .message {
+    max-width: 85%;
+  }
+
+
+  /* Profile */
+
+  .profile-page {
+    padding: 35px 15px;
+  }
+
+  .profile-header h1 {
+    font-size: 32px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    gap: 25px;
+  }
+
+  .profile-avatar {
+    width: 105px;
+
+    height: 105px;
+
+    font-size: 40px;
+  }
+
+  .profile-info {
+    width: 100%;
+  }
+
+  .profile-detail {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+
+  /* Login */
+
+  .login-card {
+    padding: 35px 25px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL SCREENS
+===================================================== */
+
+@media (max-width: 450px) {
+
+  .nav-links {
+    gap: 9px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .navbar {
+    padding: 0 12px;
+  }
+
+  .navbar h2 {
+    font-size: 16px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .message-input {
+    padding: 10px;
+  }
+
+  .message-input button {
+    padding: 12px 15px;
+  }
+}
+
